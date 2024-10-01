@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<base href="" >
-		<meta charset="utf-8"/>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<meta name="description" content="%%description%%"/>
-		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<title>%%title%%</title>
-<style>
 /* ----------------------------------------------------
 変数を定義
 ---------------------------------------------------- */
@@ -64,6 +54,7 @@ Reset
 
 body {
   margin: 0;
+  background: #fff;
 }
 
 p,
@@ -476,7 +467,13 @@ a.ui-button:active {
 Form Style
 ---------------------------------------------------- */
 form.form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 32px;
+
   color: var(--form-text-color);
+  background-color: #fff;
   width: var(--form-width);
   max-width: 100%;
   margin: 0;
@@ -542,14 +539,21 @@ form.form input.date,
 form.form select,
 form.form textarea,
 form.form textarea.standard {
-  border: solid 1px #cbd6e2;
-  background-color: #f5f8fa;
+  border: solid 1px #000;
+  background-color: #fff;
   background-image: none;
   width: 100%;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: normal;
   color: var(--form-text-color);
-  padding: 9px 15px 8px;
+  padding: 8px 16px;
+  border-radius: 0;
+}
+
+form.form input,
+form.form input.date,
+form.form select {
+  height: 48px;
 }
 
 form.form input[type="checkbox"],
@@ -618,9 +622,13 @@ form.form input[type="radio"]:checked + label.inline:after {
 }
 
 form.form select {
-  -webkit-appearance: auto;
-  -moz-appearance: auto;
-  appearance: auto;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20clip-path%3D%22url(%23clip0_4205_6302)%22%3E%3Cpath%20d%3D%22M7.41%208.59L12%2013.17L16.59%208.59L18%2010L12%2016L6%2010L7.41%208.59Z%22%20fill%3D%22%23282829%22%2F%3E%3C%2Fg%3E%3Cdefs%3E%3CclipPath%20id%3D%22clip0_4205_6302%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22white%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3C%2Fsvg%3E')
 }
 
 form.form span.value {
@@ -700,6 +708,64 @@ form.form p.error:not(.form-field)::before {
   content: "■";
 }
 
+form.form .form-text.error {
+  color: #CD1212;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.form-field.form-group.row {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100%;
+  gap: 8px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.form-field.form-group.row.last_name,
+.form-field.form-group.row.first_name {
+  width: 50%;
+}
+
+.form-field.form-group.row * {
+  width: 100%;
+  max-width: 100%;
+}
+
+.form-field.form-group.row label.form-label {
+  font-size: 16px;
+  font-weight: 700;
+  list-style: 19.36px;
+  color: #000;
+  margin-bottom: 0;
+}
+
+.submit {
+  margin-top: 64px;
+  height: 86px;
+}
+
+.submit input.btn {
+  width: 373px;
+  height: 100%;
+  border: 1px solid #000;
+  border-radius: 100px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  background-color: #fff;
+}
+
+.submit input.btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
 /* ----------------------------------------------------
 Responsive
 ---------------------------------------------------- */
@@ -710,6 +776,7 @@ Responsive
     padding-bottom: var(--form-sp-paddingBottom);
     padding-left: var(--form-sp-paddingLeftRight);
     padding-right: var(--form-sp-paddingLeftRight);
+    gap: 16px;
   }
   form.form .form-field,
   form.form .form-field.email-pref,
@@ -722,11 +789,10 @@ Responsive
   form.form p.submit input {
     font-size: 16px;
   }
+  .form-field.form-group.row.last_name,
+  .form-field.form-group.row.first_name {
+    width: 100%;
+  }
 }
-</style>
-	</head>
-	<body>
-		%%content%%
-	</body>
-</html>
+
 
